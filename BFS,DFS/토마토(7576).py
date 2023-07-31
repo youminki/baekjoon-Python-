@@ -39,7 +39,7 @@ for i in graph: # 모든 칸을 순회하면서, 익지 않은 토마토가 있�
 print(total - 1) # 시작을 1로 표현했으므로 1을 빼줘서 최종 결과를 출력합니다.
 
 
-#다른 사람이 작성한 코드
+# 다른 사람이 작성한 코드
 """
 import sys
 from collections import deque
