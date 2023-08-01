@@ -24,7 +24,10 @@ maps = []
 for i in range(n): #맵 정보 입력
     maps.append(list(map(int, input().split())))
 q = deque()
-q.append([0,0,0,0]) # x좌표, y좌표, 이동비용, 원숭이가 움직인 횟수
+q.append([0,0,0,0]) # x = x좌표
+                    # y = y좌표
+                    # count = 이동비용(이것을 구하는 이유는 원숭이가 움직인 횟수의 최소값을 구하기 위함)
+                    # action = 원숭이가 움직인 횟수
 
 def bfs():  # x -> row, y -> col
     while q:
@@ -32,7 +35,7 @@ def bfs():  # x -> row, y -> col
         if x == n - 1 and y == m - 1: # 목적지 도착
             print(count)
             return
-        for i in range(4): #상하좌우 이동
+        for i in range(4): # 상하좌우 이동
             nx = x + dx[i]
             ny = y + dy[i]
             if action >= K: # 원숭이의 움직임을 다 쓴 경우 visited에 최대 사용가능한 원숭이의 움직임 K로 저장한다.
