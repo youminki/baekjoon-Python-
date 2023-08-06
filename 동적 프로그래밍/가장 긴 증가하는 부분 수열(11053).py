@@ -1,7 +1,8 @@
 import sys
+
 input = sys.stdin.readline
 
-n = int(input())  
+n = int(input())
 
 p = list(map(int, input().split()))
 
@@ -16,7 +17,7 @@ print(max(dp))
 
 """풀이:
 1.n = 6, p = 10, 20, 10, 30, 20, 50을 입력 받는다
-2. 입력받은 값 n을 dp에 배열로 저장한다. 
+2. 입력받은 값 n을 dp에 배열로 저장한다.
 3. 변수 i가 (1 ~ n)구간을 반복한다.
 4. 변수 j가 (1 ~ n)구간에서 반복한다.
 5. p[i] > p[j]일 경우 dp[i]는 최댓값(dp[i], dp[j]+1)을 가진다.
@@ -28,10 +29,10 @@ print(max(dp))
 p = [10, 20 ,10, 30, 20 ,50] -> dp = [1,1,1,1,1,1]
 
 1.  p1[i=1], p0[j=0]
-    p[1] > p[0] : True 
+    p[1] > p[0] : True
     -> dp = [1,?,?,?,?,?]
 2.  p2[i=2], p1[j=1], p0[j=0]
-    p[2] > p[0] : False 
+    p[2] > p[0] : False
     p[2] > p[1] : False
     -> dp = [1,2,?,?,?,?]
 3.  p3[i=1], p2[i=2], p1[i=1], p0[i=0]
