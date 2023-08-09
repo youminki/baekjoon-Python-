@@ -1,4 +1,7 @@
+# 1로 만들기(1463).py
+"""https://www.acmicpc.net/problem/1463"""
 import sys
+
 input = sys.stdin.readline
 
 n = int(input())  # 정수를 입력받아서 n에 저장
