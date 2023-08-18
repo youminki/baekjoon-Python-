@@ -20,7 +20,7 @@ for _ in range(T):
     print(dp[n][m])
     
 #-------------------------------
-# python에서 제공하는 factorial 함수 사용 
+# python에서 제공하는 factorial 함수 사용
 import sys
 from math import factorial
 
