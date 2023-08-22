@@ -1,11 +1,45 @@
+from collections import deque
 
+N, M, V = list(map(int, input().split()))
+graph = [[0] * (1001) for i in range(1001)]
+visited_dfs = [0] * (N + 1)
+visited_bfs = [0] * (N + 1)
+
+for i in range(M):
+    a,b=map(int, input().split())
+    graph[a][b] = graph[b][a] = True
+
+#구현
+def dfs(V):
+    visited_dfs[V] = 1
+    print(V,end=' ')
+    for i in range(1, N + 1):
+        if(visited_dfs[i] == 0 and graph[V][i] == 1):
+            dfs(i)
+
+def bfs(V):
+    queue = deque([V]) # deque는 스택과 큐의 기능을 모두 가지고 있는 객체로, 양방향에서 삽입과 삭제가 일어날 수 있는 자료구조이다
+    visited_bfs[V] = 1
+    while queue:
+        V=queue.popleft()
+        print(V, end = ' ')
+        for i in range(1, N + 1):
+            if(visited_bfs[i] == 0 and graph[V][i] == 1):
+                queue.append(i)
+                visited_bfs[i] = 1
+
+dfs(V)
+print()
+bfs(V)
+
+"""
 from collections import deque
 
 # 정점의 개수 N(1 ≤ N ≤ 1,000), 간선의 개수 M(1 ≤ M ≤ 10,000), 탐색을 시작할 정점의 번호 V가 주어진다.
 N,M,V = map(eval,input().split())
 
 # 연결 그래프 생성
-graph = [[False] * (N+1) for _ in range(N+1)]
+graph = [[False] * (N + 1) for _ in range(N + 1)]
 
 # 다음 M개의 줄에는 간선이 연결하는 두 정점의 번호가 주어진다.
 # 입력으로 주어지는 간선은 양방향이다.
@@ -15,19 +49,19 @@ for _ in range(M):
     graph[a][b] = True
     graph[b][a] = True
 
-visited1 = [False] * (N+1) #DFS 방문기록
-visited2 = [False] * (N+1) #BFS 방문기록
+visited1 = [False] * (N + 1) #DFS 방문기록
+visited2 = [False] * (N + 1) #BFS 방문기록
 
 #방문할 수 있는 정점이 여러 개인 경우에는 정점 번호가 작은 것을 먼저 방문
 
 # DFS 재귀
-def DFS_rec(V):
+def DFS(V):
     visited1[V] = True  #해당 정점 V 방문처리
     print(V, end=' ')
     # 방문할 수 있는 정점이 여러 개인 경우에는 정점 번호가 작은 것을 먼저 방문
-    for i in range(1, N+1): #i=1,2,...,N
+    for i in range(1, N + 1): #i=1,2,...,N
         if not visited1[i] and graph[V][i]: #만약 정점 i를 방문하지 않았고 정점 V와 연결되어 있다면
-            DFS_rec(i)  # 정점 i를 이용해서 DFS(i) 호출 ( 깊이 우선 탐색 )
+            DFS(i)  # 정점 i를 이용해서 DFS(i) 호출 ( 깊이 우선 탐색 )
 
 # DFS 스택 LIFO
 def DFS_stack(V):
@@ -52,16 +86,12 @@ def BFS(V):
             print(V, end=' ')
             visited2[V] = True  # 해당 정점 V 방문처리
         # 방문할 수 있는 정점이 여러 개인 경우에는 정점 번호가 작은 것을 먼저 방문
-        for i in range(1, N+1): #i=1,2,...,N
+        for i in range(1, N + 1): #i=1,2,...,N
             if not visited2[i] and graph[V][i]: #만약 정점 i를 방문하지 않았고 정점 V와 연결되어 있다면
                 q.append(i)     #정점 i 추가
-
-
-
-DFS_rec(V)
-#DFS_stack(V)
+DFS(V)
 print()
-BFS(V)
+BFS(V)"""
 
 
 """
