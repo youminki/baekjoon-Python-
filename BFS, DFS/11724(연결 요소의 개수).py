@@ -1,11 +1,11 @@
 # 11724(연결 요소의 개수).py
-""" https://www.acmicpc.net/provlem/11724 """
+""" https://www.acmicpc.net/problem/11724 """
 import sys
 from collections import deque
 
 N, M = map(int, sys.stdin.readline().split())
-graph = [[] for _ in range(N + 1)]
-visited = [0] * (N + 1)
+graph = [[] for _ in range(1001)]
+visited = [False] * (N + 1)
 count = 0
 for _ in range(M):
     u, v = map(int, sys.stdin.readline().split())
@@ -38,8 +38,8 @@ import sys
 sys.setrecursionlimit(10000)
 
 N, M = map(int, sys.stdin.readline().split())
-graph = [[] for _ in range(N + 1)]
-visited = [0] * (N + 1)
+graph = [[] for _ in range(1001)]
+visited = [False] * (N + 1)
 count = 0
 for _ in range(M):
     u, v = map(int, sys.stdin.readline().split())
