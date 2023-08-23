@@ -2,35 +2,35 @@ from collections import deque
 
 N, M, V = list(map(int, input().split()))
 graph = [[0] * (1001) for i in range(1001)]
-visited_dfs = [0] * (N + 1)
-visited_bfs = [0] * (N + 1)
+visited_DFS = [0] * (N + 1)
+visited_BFS = [0] * (N + 1)
 
 for i in range(M):
-    a,b=map(int, input().split())
+    a,b = map(int, input().split())
     graph[a][b] = graph[b][a] = True
 
 #구현
-def dfs(V):
-    visited_dfs[V] = 1
+def DFS(V):
+    visited_DFS[V] = True
     print(V,end=' ')
     for i in range(1, N + 1):
-        if(visited_dfs[i] == 0 and graph[V][i] == 1):
-            dfs(i)
+        if(visited_DFS[i] == 0 and graph[V][i] == 1):
+            DFS(i)
 
-def bfs(V):
+def BFS(V):
     queue = deque([V]) # deque는 스택과 큐의 기능을 모두 가지고 있는 객체로, 양방향에서 삽입과 삭제가 일어날 수 있는 자료구조이다
-    visited_bfs[V] = 1
+    visited_BFS[V] = True
     while queue:
         V=queue.popleft()
         print(V, end = ' ')
         for i in range(1, N + 1):
-            if(visited_bfs[i] == 0 and graph[V][i] == 1):
+            if(visited_BFS[i] == 0 and graph[V][i] == 1):
                 queue.append(i)
-                visited_bfs[i] = 1
+                visited_BFS[i] = True
 
-dfs(V)
+DFS(V)
 print()
-bfs(V)
+BFS(V)
 
 """
 from collections import deque
