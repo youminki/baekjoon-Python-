@@ -3,15 +3,43 @@
 import sys
 
 input = sys.stdin.readline
+N = int(input())
+M = int(input())
+graph = [[] for _ in range(101)]
+visited = [0] * (N + 1)
+
+for  _ in range(M):
+    u, v = map(int, sys.stdin.readline().split())
+    graph[u].append(v)
+    graph[v].append(u)
+def DFS(M):
+    visited[M] = True
+    for i in graph[M]:
+        if visited[i] == 0:
+            DFS(i)
+
+DFS(1)
+print(sum(visited) - 1)
+
+
+
+
+
+
+
+
+
+
+
+"""
+import sys
+
+input = sys.stdin.readline
 
 # 깊이 우선 탐색(DFS) 로 풀어보기
 # DFS : 스택 사용 , 스택에 담는 순서가 중요, 방문 순서대로 스택에 담는다. 스택은 list로 표현 ( 후입 선출 ), 재귀로 사용 가능??
 # 번호가 낮은 인접노드부터 방문
-'''
-예시에 나온 그림을 기준으로 하면
-1 - 2 - 3 - 5 - 6  //  4 - 7
-이런 순으로 방문하게 된다.
-'''
+
 n = int(input())
 c = int(input())
 
@@ -62,3 +90,4 @@ def dfs(graph, now_visit, visited):
 # 문제에서 1번 컴퓨터와 연결된 컴퓨터를 찾아달라고 했으니
 # now_visit는 1로 입력해서 넣어준다.
 print(dfs(graph, 1, visited))
+"""
