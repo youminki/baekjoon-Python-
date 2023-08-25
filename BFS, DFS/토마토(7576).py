@@ -17,6 +17,7 @@ for i in range(n):
     for j in range(m):
         if graph[i][j] == 1:
             q.append([i,j])
+#print(graph[i][j])
 while q:
     x, y = q.popleft()
     for i in range(4):
@@ -25,15 +26,15 @@ while q:
         if 0 <= nx < n and 0 <= ny < m and graph[nx][ny] == 0:
             graph[nx][ny] = graph[x][y] + 1
             q.append([nx,ny])
-
-result = 0
+print(graph[nx][ny])
+"""result = 0
 for i in graph:
     for j in i:
         if j == 0:
             print(-1)
             exit(0)
     result = max(result, max(i))
-print(result - 1)
+print(result - 1)"""
 
 # 주석 코드
 """from collections import deque
