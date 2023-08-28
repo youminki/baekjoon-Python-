@@ -43,7 +43,7 @@ visited = [False] * (N + 1)
 count = 0
 for _ in range(M):
     u, v = map(int, sys.stdin.readline().split())
-    graph[u].append(v)
+    graph[u].append(v) 
     graph[v].append(u)
 
 def DFS(v):
