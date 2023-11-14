@@ -24,13 +24,13 @@ for j in combinations(chicken, M):
     for i in house:
         tmp = int(1e9)
         for k in j:
-            print("치킨집 위치", k)
+            #print("치킨집 위치", k)
             tmp = min(tmp, abs(k[0]-i[0])+abs(k[1]-i[1])) # 현재 집과 선택된 치킨 집 사이의 거리 계산
-            print("chicken",k[0],k[1])
-            print("house", i[0],i[1])
-            print("치킨집 ~ 집 거리 = ", min(tmp, abs(k[0]-i[0])+abs(k[1]-i[1])))
+            #print("chicken",k[0],k[1])
+            #print("house", i[0],i[1])
+            #print("치킨집 ~ 집 거리 = ", min(tmp, abs(k[0]-i[0])+abs(k[1]-i[1])))
         total+=tmp # 현재 일반 집에 대한 최소 치킨 거리를 전체 거리에 더함
-        print(total)
+        #print(total)
     res = min(res, total)
         
 print(res)
